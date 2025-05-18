@@ -22,6 +22,7 @@ class PlayPauseButtons extends StatelessWidget {
                   value.playerState == PlayerState.playing
                       ? Icons.pause
                       : Icons.play_arrow,
+                  color: Colors.white,
                 ),
               ),
               onTap: () {
@@ -38,7 +39,10 @@ class PlayPauseButtons extends StatelessWidget {
             return InkWell(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Icon(isMuted ? Icons.volume_off : Icons.volume_up),
+                child: Icon(
+                  isMuted ? Icons.volume_off : Icons.volume_up,
+                  color: Colors.white,
+                ),
               ),
               onTap: () {
                 _isMuted.value = !isMuted;

@@ -30,7 +30,7 @@ class BrandLogo extends StatelessWidget {
                           horizontal: 10, vertical: 10),
                       color: Colors.transparent,
                       width: width,
-                      height: 50,
+                      height: 48,
                       child: logo,
                     ),
                   );

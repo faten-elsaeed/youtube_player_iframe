@@ -144,33 +144,36 @@ class _YoutubePlayerScaffoldState extends State<YoutubePlayerScaffold> {
                           if (value.fullScreenOption.enabled) return player;
                           return widget.builder(
                             context,
-                            Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                player,
-                                BrandLogo(
-                                  width: 100,
-                                  logo: widget.brandLogo,
-                                  ytController: widget.controller,
-                                ),
-                                Positioned.fill(
-                                  child: ScreenGestures(
-                                    detectScreenTap: () {
-                                      _toggleScreen();
+                            Directionality(
+                              textDirection: TextDirection.ltr,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  player,
+                                  BrandLogo(
+                                    width: 100,
+                                    logo: widget.brandLogo,
+                                    ytController: widget.controller,
+                                  ),
+                                  Positioned.fill(
+                                    child: ScreenGestures(
+                                      detectScreenTap: () {
+                                        _toggleScreen();
+                                      },
+                                    ),
+                                  ),
+                                  ValueListenableBuilder<bool>(
+                                    valueListenable: _showControlsNotifier,
+                                    builder: (context, show, _) {
+                                      return show
+                                          ? SlidersAndControls(
+                                              ytController: widget.controller,
+                                            )
+                                          : const SizedBox.shrink();
                                     },
                                   ),
-                                ),
-                                ValueListenableBuilder<bool>(
-                                  valueListenable: _showControlsNotifier,
-                                  builder: (context, show, _) {
-                                    return show
-                                        ? SlidersAndControls(
-                                            ytController: widget.controller,
-                                          )
-                                        : const SizedBox.shrink();
-                                  },
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         },
@@ -182,25 +185,31 @@ class _YoutubePlayerScaffoldState extends State<YoutubePlayerScaffold> {
                         logo: widget.brandLogo,
                         ytController: widget.controller,
                       ),
-                      Positioned.fill(
-                        child: Material(
-                          type: MaterialType.transparency,
-                          child: ScreenGestures(
-                            detectScreenTap: () {
-                              _toggleScreen();
-                            },
+                      Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: Positioned.fill(
+                          child: Material(
+                            type: MaterialType.transparency,
+                            child: ScreenGestures(
+                              detectScreenTap: () {
+                                _toggleScreen();
+                              },
+                            ),
                           ),
                         ),
                       ),
-                      ValueListenableBuilder<bool>(
-                        valueListenable: _showControlsNotifier,
-                        builder: (context, show, _) {
-                          return show
-                              ? SlidersAndControls(
-                                  ytController: widget.controller,
-                                )
-                              : const SizedBox.shrink();
-                        },
+                      Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: ValueListenableBuilder<bool>(
+                          valueListenable: _showControlsNotifier,
+                          builder: (context, show, _) {
+                            return show
+                                ? SlidersAndControls(
+                                    ytController: widget.controller,
+                                  )
+                                : const SizedBox.shrink();
+                          },
+                        ),
                       ),
                     ],
                   ],
