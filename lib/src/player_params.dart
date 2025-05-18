@@ -141,7 +141,7 @@ class YoutubePlayerParams {
         'origin': origin,
         'widget_referrer': origin,
       },
-      'playsinline': '0',
+      'playsinline': 1,
       'rel': 0,
     };
   }
