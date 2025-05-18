@@ -416,7 +416,7 @@ packages:
   youtube_player_iframe:
     dependency: "direct main"
     description:
-      path: "/Users/fatenelsaeed/IdeaProjects/youtube_player_flutter/packages/youtube_player_iframe"
+      path: "/Users/fatenelsaeed/IdeaProjects/youtube_player_iframe"
       relative: false
     source: path
     version: "5.2.1"

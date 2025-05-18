@@ -13,7 +13,7 @@ dependencies:
       sdk: flutter
   go_router: ^14.6.0
   youtube_player_iframe:
-    path: /Users/fatenelsaeed/IdeaProjects/youtube_player_flutter/packages/youtube_player_iframe
+    path: /Users/fatenelsaeed/IdeaProjects/youtube_player_iframe
 
 dev_dependencies:
   flutter_test:

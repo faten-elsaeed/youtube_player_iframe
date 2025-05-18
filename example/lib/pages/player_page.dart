@@ -38,7 +38,9 @@ class _PlayerPageState extends State<PlayerPage> {
   Widget build(BuildContext context) {
     return YoutubePlayerScaffold(
       controller: _controller,
-      brandLogo: const SizedBox(),
+      brandLogo: Container(
+        color: Colors.white,
+      ),
       builder: (context, player) {
         return Scaffold(
           appBar: AppBar(

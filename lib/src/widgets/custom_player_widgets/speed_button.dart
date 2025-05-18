@@ -20,6 +20,7 @@ class SpeedButton extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 DropdownButton(
+                  dropdownColor: Colors.black87,
                   value: value.playbackRate,
                   isDense: true,
                   icon: const Icon(
