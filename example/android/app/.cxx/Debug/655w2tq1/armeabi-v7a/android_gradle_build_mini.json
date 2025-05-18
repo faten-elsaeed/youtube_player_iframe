@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/fatenelsaeed/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/fatenelsaeed/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/fatenelsaeed/IdeaProjects/youtube_player_flutter/packages/youtube_player_iframe/example/android/app/.cxx/Debug/655w2tq1/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/fatenelsaeed/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/fatenelsaeed/IdeaProjects/youtube_player_flutter/packages/youtube_player_iframe/example/android/app/.cxx/Debug/655w2tq1/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

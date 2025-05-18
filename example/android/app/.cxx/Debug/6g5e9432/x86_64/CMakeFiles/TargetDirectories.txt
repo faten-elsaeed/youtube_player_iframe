@@ -1,0 +1,2 @@
+/Users/fatenelsaeed/IdeaProjects/youtube_player_iframe/example/android/app/.cxx/Debug/6g5e9432/x86_64/CMakeFiles/edit_cache.dir
+/Users/fatenelsaeed/IdeaProjects/youtube_player_iframe/example/android/app/.cxx/Debug/6g5e9432/x86_64/CMakeFiles/rebuild_cache.dir
