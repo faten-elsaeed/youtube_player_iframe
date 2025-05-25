@@ -27,14 +27,6 @@ class ScreenGestures extends StatelessWidget {
               return Stack(
                 alignment: Alignment.center,
                 children: [
-                  if (tappedPlay)
-                    Icon(
-                      value.playerState == PlayerState.playing
-                          ? Icons.play_circle_outline_rounded
-                          : Icons.pause_circle_outline_rounded,
-                      size: 40,
-                      color: Colors.white38,
-                    ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -52,14 +44,15 @@ class ScreenGestures extends StatelessWidget {
                             );
                           },
                           onTap: () {
-                            value.playerState == PlayerState.playing
-                                ? context.ytController.pauseVideo()
-                                : context.ytController.playVideo();
-                            setState(() => tappedPlay = true);
-                            Future.delayed(
-                              const Duration(milliseconds: 600),
-                              () => setState(() => tappedPlay = false),
-                            );
+                            if (tappedPlay) {
+                              tappedPlay = false;
+                            } else {
+                              setState(() => tappedPlay = true);
+                              Future.delayed(
+                                const Duration(seconds: 5),
+                                () => setState(() => tappedPlay = false),
+                              );
+                            }
                             detectScreenTap?.call();
                           },
                           child: Container(
@@ -92,14 +85,15 @@ class ScreenGestures extends StatelessWidget {
                             );
                           },
                           onTap: () {
-                            value.playerState == PlayerState.playing
-                                ? context.ytController.pauseVideo()
-                                : context.ytController.playVideo();
-                            setState(() => tappedPlay = true);
-                            Future.delayed(
-                              const Duration(milliseconds: 1000),
-                              () => setState(() => tappedPlay = false),
-                            );
+                            if (tappedPlay) {
+                              tappedPlay = false;
+                            } else {
+                              setState(() => tappedPlay = true);
+                              Future.delayed(
+                                const Duration(seconds: 5),
+                                () => setState(() => tappedPlay = false),
+                              );
+                            }
                             detectScreenTap?.call();
                           },
                           child: Container(
@@ -117,6 +111,28 @@ class ScreenGestures extends StatelessWidget {
                       ),
                     ],
                   ),
+                  if (tappedPlay || value.playerState == PlayerState.paused)
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 18),
+                      child: InkWell(
+                        onTap: () {
+                          value.playerState == PlayerState.playing
+                              ? context.ytController.pauseVideo()
+                              : context.ytController.playVideo();
+                        },
+                        child: CircleAvatar(
+                          backgroundColor: Colors.black38,
+                          radius: 24,
+                          child: Icon(
+                            value.playerState == PlayerState.paused
+                                ? Icons.play_arrow
+                                : Icons.pause,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               );
             },

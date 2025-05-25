@@ -7,6 +7,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_iframe/src/widgets/custom_player_widgets/brand_logo.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../controller/youtube_player_controller.dart';
 import '../helpers/youtube_value_builder.dart';
@@ -101,10 +102,15 @@ class _YoutubePlayerScaffoldState extends State<YoutubePlayerScaffold> {
   }
 
   void _toggleScreen() {
-    _showControlsNotifier.value = true;
-    Future.delayed(const Duration(seconds: 5), () {
+    if (_showControlsNotifier.value) {
       _showControlsNotifier.value = false;
-    });
+    } else {
+      _showControlsNotifier.value = true;
+      Future.delayed(const Duration(seconds: 5), () async {
+        final state = await widget.controller.playerState;
+        if (state == PlayerState.playing) _showControlsNotifier.value = false;
+      });
+    }
   }
 
   final ValueNotifier<bool> _showControlsNotifier = ValueNotifier(true);
